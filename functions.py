@@ -7,6 +7,14 @@ def replaceColumn(data, newData, i):
 
     return data
 
+def setCategorical(labels, headers):
+    for head in range(len(headers)):
+        for i in range(len(labels)):
+            if labels[i] == headers[head]:
+                labels[i] = head
+
+    return labels
+
 def normalize(data):
     """
     Data normalization function that gets a dataset readed as a list of lists
