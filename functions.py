@@ -67,3 +67,53 @@ def minimax(data):
 
     newData.sort(key=takeKey, reverse = False)
     return newData
+
+def leximin(data):
+    """
+    Function that gets a dataset readed as a list of lists and returns the dataset
+    with the leximin applied
+    """
+
+    newData = []
+
+    for row in data:
+        arr = row.copy()
+        arr.sort()
+        newData.append(row + arr)
+
+    def takeKey(elem):
+        total = int(len(elem)/2)
+        key = []
+
+        for i in range(total,len(elem)):
+            key.append(elem[i])
+        return key
+
+    newData.sort(key=takeKey, reverse = True)
+
+    return newData
+
+def leximax(data):
+    """
+    Function that gets a dataset readed as a list of lists and returns the dataset
+    with the leximax applied
+    """
+
+    newData = []
+
+    for row in data:
+        arr = row.copy()
+        arr.sort(reverse = True)
+        newData.append(row + arr)
+
+    def takeKey(elem):
+        total = int(len(elem)/2)
+        key = []
+
+        for i in range(total,len(elem)):
+            key.append(elem[i])
+        return key
+
+    newData.sort(key=takeKey, reverse = False)
+
+    return newData
