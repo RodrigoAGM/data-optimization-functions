@@ -18,3 +18,17 @@ with open('iris.csv') as csvfile:
             newRow = list(float(row[i]) for i in cols)
             data.append(newRow)
             species.append(row[5])
+
+#nomralize columns
+norm = functions.normalize(functions.getColumn(data,0))
+functions.replaceColumn(data,norm,0)
+
+norm = functions.normalize(functions.getColumn(data,1))
+functions.replaceColumn(data,norm,1)
+
+norm = functions.normalize(functions.getColumn(data,2))
+functions.replaceColumn(data,norm,2)
+
+norm = functions.normalize(functions.getColumn(data,3))
+functions.replaceColumn(data,norm,3)
+
