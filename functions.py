@@ -31,3 +31,39 @@ def WA(data,weights):
         row.append(val)
         newData.append(row)
     return newData
+
+def maximin(data):
+    """
+    Function that gets a dataset readed as a list of lists and returns the dataset
+    with the maximin applied
+    """
+    newData = []
+    pos = len(data[0])
+    for row in data:
+        minVal = min(row)
+        row.append(minVal)
+        newData.append(row)
+
+    def takeKey(elem):
+        return elem[pos]
+
+    newData.sort(key=takeKey, reverse = True)
+    return newData
+
+def minimax(data):
+    """
+    Function that gets a dataset readed as a list of lists and returns the dataset
+    with the minimax applied
+    """
+    newData = []
+    pos = len(data[0])
+    for row in data:
+        maxVal = max(row)
+        row.append(maxVal)
+        newData.append(row)
+
+    def takeKey(elem):
+        return elem[pos]
+
+    newData.sort(key=takeKey, reverse = False)
+    return newData
