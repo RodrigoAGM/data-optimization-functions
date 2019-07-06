@@ -3,6 +3,7 @@ import functions
 
 data = []
 labels = []
+species = []
 
 #read data
 with open('iris.csv') as csvfile:
@@ -16,3 +17,4 @@ with open('iris.csv') as csvfile:
         else:
             newRow = list(float(row[i]) for i in cols)
             data.append(newRow)
+            species.append(row[5])
