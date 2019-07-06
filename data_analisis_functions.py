@@ -9,20 +9,14 @@ def pcaFunction(data, dim):
 
     return data_PCA
 
-def kmeans_centers(data, clu):
+def kmeans(data, clu):
     kmeans = KMeans(n_clusters=clu, n_init=10, init="k-means++")
     kmeans.fit(data)
 
-    return list(kmeans.cluster_centers_)
+    return kmeans, [kmeans.cluster_centers_]
 
-def kmeans_predict(data, clu, newPoint):
-    kmeans = KMeans(n_clusters=clu, n_init=10, init="k-means++")
-    kmeans.fit(data)
-
-    return kmeans.predict(newPoint)
-
-def knn_predict(data, knei, labels, newPoint):
+def knn(data, knei, labels):
     neigh = KNeighborsClassifier(n_neighbors = knei)
     neigh.fit(data,labels)
 
-    return neigh.predict(newPoint)
+    return neigh

@@ -47,6 +47,7 @@ def maximin(data):
     """
     newData = []
     pos = len(data[0])
+
     for row in data:
         minVal = min(row)
         row.append(minVal)
@@ -90,11 +91,8 @@ def leximin(data):
         newData.append(row + arr)
 
     def takeKey(elem):
-        total = int(len(elem)/2)
-        key = []
-
-        for i in range(total,len(elem)):
-            key.append(elem[i])
+        start = int(len(elem)/2)
+        key = elem[start:]
         return key
 
     newData.sort(key=takeKey, reverse = True)
@@ -115,11 +113,8 @@ def leximax(data):
         newData.append(row + arr)
 
     def takeKey(elem):
-        total = int(len(elem)/2)
-        key = []
-
-        for i in range(total,len(elem)):
-            key.append(elem[i])
+        start = int(len(elem)/2)
+        key = elem[start:]
         return key
 
     newData.sort(key=takeKey, reverse = False)
